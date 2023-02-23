@@ -24,6 +24,17 @@ public class ClientController {
 
     @PutMapping
     public ResponseEntity<Client> modifiyClient(@RequestBody Client client){
-        return new ResponseEntity<>(this.clientService.modifyClient(client), HttpStatus.??);
+        return new ResponseEntity<>(this.clientService.modifyClient(client), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> disableClient(@RequestParam long id){
+        this.clientService.disableClient(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{tipo}/{nro}")
+    public ResponseEntity<Client> getClient(@RequestParam String tipo, @RequestParam String nro){
+        return new ResponseEntity<>(this.clientService.getClient(tipo, nro), HttpStatus.OK);
     }
 }

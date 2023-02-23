@@ -29,14 +29,14 @@ public class ClientService {
         return this.clientRepository.save(client1);
     }
 
-    public void deleteClient (Long id){
+    public void disableClient(Long id){
         Client client1 = this.clientRepository.findById(id).get();
 
         client1.setActivo(false);
         this.clientRepository.save(client1);
     }
 
-    public Client getClient (String numeroDocumento, String tipoDocumento){
+    public Client getClient(String numeroDocumento, String tipoDocumento){
         return this.clientRepository.findByNumeroDocumentoAndTipoDocumento(numeroDocumento, tipoDocumento);
     }
 

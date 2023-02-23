@@ -1,14 +1,12 @@
 package Backend_Brawlers.model;
 
 import lombok.Data;
-
-import java.sql.Date;
+import java.time.LocalDate;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "customer")
 @Data
-
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +16,7 @@ public class Client {
     private String nombre;
     private String apellido;
     private String genero;
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private Boolean activo = true;
 
 }
