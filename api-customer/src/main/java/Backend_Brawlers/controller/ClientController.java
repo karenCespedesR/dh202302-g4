@@ -28,13 +28,13 @@ public class ClientController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> disableClient(@RequestParam long id){
+    public ResponseEntity<?> disableClient(@PathVariable long id){
         this.clientService.disableClient(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{tipo}/{nro}")
-    public ResponseEntity<Client> getClient(@RequestParam String tipo, @RequestParam String nro){
+    public ResponseEntity<Client> getClient(@PathVariable String tipo, @PathVariable String nro){
         return new ResponseEntity<>(this.clientService.getClient(tipo, nro), HttpStatus.OK);
     }
 }
