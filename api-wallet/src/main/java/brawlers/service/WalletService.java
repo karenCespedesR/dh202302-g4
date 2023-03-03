@@ -1,5 +1,7 @@
 package brawlers.service;
+import brawlers.client.CustomerFeign;
 import brawlers.entities.Wallet;
+import brawlers.exception.CustomerNotFound;
 import brawlers.repository.WalletRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,14 +11,22 @@ import java.util.Optional;
 @Service
 public class WalletService {
     private final WalletRepository walletRepository;
+    private final CustomerFeign customerFeign;
 
     @Autowired
-    public WalletService(WalletRepository walletRepository) {
+    public WalletService(WalletRepository walletRepository, CustomerFeign customerFeign) {
         this.walletRepository = walletRepository;
+        this.customerFeign = customerFeign;
     }
 
-    public Wallet createWallet(Wallet wallet) {
-        return walletRepository.save(wallet);
+    public Wallet createWallet(Wallet wallet) throws CustomerNotFound{
+        CustomerFeign.Client clientBuscado = customerFeign.getByTipoYNumero(wallet.getTipoDocumento(), wallet.getNroDocumento());
+        if( clientBuscado != null){
+            return walletRepository.save(wallet);
+        }else{
+            throw new CustomerNotFound("Customer not found");
+        }
+
     }
 
     public Wallet updateBalance(double balance, Long id) {

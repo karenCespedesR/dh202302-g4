@@ -5,6 +5,8 @@ import brawlers.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ClientService {
     private final ClientRepository clientRepository;
@@ -36,8 +38,14 @@ public class ClientService {
         this.clientRepository.save(client1);
     }
 
-    public Client getClient(String numeroDocumento, String tipoDocumento){
-        return this.clientRepository.findByNumeroDocumentoAndTipoDocumento(numeroDocumento, tipoDocumento);
+    public Client getClient(String numeroDocumento, String tipoDocumento) {
+        Optional<Client> clientRecuperado = this.clientRepository.findByNumeroDocumentoAndTipoDocumento(numeroDocumento, tipoDocumento);
+
+        if( clientRecuperado.isPresent() ){
+            return clientRecuperado.get();
+        }else {
+            return null;
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 package brawlers.entities;
 import lombok.Data;
 import java.sql.Date;
+import java.time.LocalDate;
 import javax.persistence.*;
 
 @Entity
@@ -16,5 +17,5 @@ public class Client {
     private String nombre;
     private String apellido;
     private String genero;
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
 }
