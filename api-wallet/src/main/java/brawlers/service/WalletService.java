@@ -2,6 +2,7 @@ package brawlers.service;
 import brawlers.client.CustomerFeign;
 import brawlers.entities.Wallet;
 import brawlers.exception.CustomerNotFound;
+import brawlers.exception.WalletNotFound;
 import brawlers.repository.WalletRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,22 +29,31 @@ public class WalletService {
         }
     }
 
-    public Wallet updateBalance(Double balance, Long id) {
+    public Wallet updateBalance(Double balance, Long id) throws WalletNotFound {
         Wallet returnedWallet = walletRepository.findById(id).get();
-        returnedWallet.setBalance(balance);
-        return walletRepository.save(returnedWallet);
+        if(returnedWallet!=null) {
+            returnedWallet.setBalance(balance);
+            return walletRepository.save(returnedWallet);
+        }else{
+            throw new WalletNotFound("Wallet not found.");
+        }
     }
 
-    public Wallet getWalletByDocumentTypeAndDocumentNumberAndCoinCode(String documentType, String documentNumber, Long coinCode) throws Exception {
+    public Wallet getWalletByDocumentTypeAndDocumentNumberAndCoinCode(String documentType, String documentNumber, Long coinCode) throws WalletNotFound {
         Optional<Wallet> walletRecibida = walletRepository.findByDocumentTypeAndDocumentNumberAndCoin_Code(documentType, documentNumber, coinCode);
         if (walletRecibida.isPresent()) {
             return walletRecibida.get();
         } else {
-            throw new Exception("Wallet not found.");
+            throw new WalletNotFound("Wallet not found.");
         }
     }
 
-    public List<Wallet> findByDocumentTypeAndDocumentValue(String documentType, String document) {
-        return walletRepository.findByDocumentTypeAndDocumentNumber(documentType, document);
+    public List<Wallet> findByDocumentTypeAndDocumentValue(String documentType, String document) throws WalletNotFound {
+        List<Wallet> returnedWallet = walletRepository.findByDocumentTypeAndDocumentNumber(documentType, document);
+        if(returnedWallet!=null) {
+            return returnedWallet;
+        }else{
+            throw new WalletNotFound("Wallet not found.");
+        }
     }
 }

@@ -1,6 +1,7 @@
 package brawlers.controller;
 import brawlers.entities.Wallet;
 import brawlers.exception.CustomerNotFound;
+import brawlers.exception.WalletNotFound;
 import brawlers.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,12 +31,12 @@ public class WalletController {
     }
 
     @GetMapping("/{documentType}/{documentNumber}")
-    public ResponseEntity<List<Wallet>> getWalletsByDocumentTypeAndDocumentNumber(@PathVariable String documentType, @PathVariable String documentNumber) {
+    public ResponseEntity<List<Wallet>> getWalletsByDocumentTypeAndDocumentNumber(@PathVariable String documentType, @PathVariable String documentNumber) throws WalletNotFound {
         return new ResponseEntity<>(this.walletService.findByDocumentTypeAndDocumentValue(documentType, documentNumber), HttpStatus.OK);
     }
 
     @PutMapping("/{id}/{balance}")
-    public ResponseEntity<Wallet> updateBalance(@PathVariable Long id, @PathVariable Double balance) {
+    public ResponseEntity<Wallet> updateBalance(@PathVariable Long id, @PathVariable Double balance) throws WalletNotFound {
         return new ResponseEntity<>(this.walletService.updateBalance(balance, id), HttpStatus.OK);
     }
 }
