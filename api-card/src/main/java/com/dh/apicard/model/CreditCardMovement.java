@@ -1,8 +1,6 @@
 package com.dh.apicard.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,8 +11,8 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@Document(collection = "Movements")
-public class CreditCardMovements {
+@Document(collection = "Movement")
+public class CreditCardMovement {
     @Id
     private String id;
     private Integer creditNum;
@@ -29,25 +27,22 @@ public class CreditCardMovements {
 
     @Getter
     @Setter
-    @Builder
-    static class Amount {
+    public static class Amount {
         private String currency;
         private BigDecimal value;
     }
 
     @Getter
     @Setter
-    @Builder
-    static class Destination {
+    public static class Destination {
         private String docType;
-        private Integer docNum;
+        private String docNum;
         private String socialName;
     }
 
     @Getter
     @Setter
-    @Builder
-    static class PurchaseDetail {
+    public static class PurchaseDetail {
         private String itemService;
         private Integer quantity;
         private BigDecimal unitPrice;

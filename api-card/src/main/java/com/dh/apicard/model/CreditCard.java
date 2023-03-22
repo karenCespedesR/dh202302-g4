@@ -11,13 +11,13 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Builder
-@Document(collection = "CreditCards")
+@Document(collection = "CreditCard")
 public class CreditCard {
     @Id
     private String id;
     private Integer creditNum;
     private String docType;
-    private Integer docNum;
+    private String docNum;
     private String currency;
     private BigDecimal consumed;
     private BigDecimal available;

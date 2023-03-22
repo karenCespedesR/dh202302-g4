@@ -1,6 +1,6 @@
 spring:
   application:
-    name: api-margins
+    name: api-card
 cloud:
   config:
     enabled: true
