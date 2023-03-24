@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Table(name = "coin")
 public class Coin {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long code;
+    private String code;
     private String description;
 }

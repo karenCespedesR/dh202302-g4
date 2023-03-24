@@ -17,10 +17,7 @@ public interface MarginFeign {
     @Getter
     @Setter
     class CalificationDTO {
-        private String documentType;
-        private String documentValue;
-        private BigDecimal totalMargin;
-        private BigDecimal totalMarginAdditional;
+
         private List<Sublimit> sublimits;
 
         @Getter
@@ -31,7 +28,7 @@ public interface MarginFeign {
         }
 
         public enum Concept {
-            CARD, LOAN, CHECK
+            CARD
         }
     }
 }
