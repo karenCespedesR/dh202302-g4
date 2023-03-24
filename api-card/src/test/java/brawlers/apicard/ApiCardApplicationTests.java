@@ -1,10 +1,10 @@
-package brawlers;
+package brawlers.apicard;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiMarginsApplicationTests {
+class ApiCardApplicationTests {
 
 	@Test
 	void contextLoads() {

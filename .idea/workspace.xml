@@ -5,30 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5d1322a-863c-4e1e-a73b-a6b36ba0ddd9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/ApiCardApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/ApiCardApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/client/MarginFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/client/MarginFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/client/WalletFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/client/WalletFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/controller/CreditCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/controller/CreditCardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/controller/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/controller/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/exceptions/CardException.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/exceptions/CardException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/exceptions/MessageError.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/exceptions/MessageError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/model/CreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/model/CreditCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/model/CreditCardMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/model/CreditCardMovement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/repository/CreditCardMovementsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/repository/CreditCardMovementsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/repository/CreditCardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/repository/CreditCardRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-card/src/main/java/com/dh/apicard/service/CreditCardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/main/java/brawlers/service/CreditCardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-customer/src/main/java/brawlers/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-customer/src/main/java/brawlers/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-customer/src/main/java/brawlers/entities/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-customer/src/main/java/brawlers/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-customer/src/main/java/brawlers/repositories/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-customer/src/main/java/brawlers/repositories/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-customer/src/main/java/brawlers/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-customer/src/main/java/brawlers/service/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-wallet/src/main/java/brawlers/controller/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-wallet/src/main/java/brawlers/controller/WalletController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-wallet/src/main/java/brawlers/entities/Coin.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-wallet/src/main/java/brawlers/model/Coin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-wallet/src/main/java/brawlers/entities/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-wallet/src/main/java/brawlers/model/Wallet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-wallet/src/main/java/brawlers/repository/WalletRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-wallet/src/main/java/brawlers/repository/WalletRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-wallet/src/main/java/brawlers/service/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-wallet/src/main/java/brawlers/service/WalletService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-card/src/test/java/com/dh/apicard/ApiCardApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-card/src/test/java/brawlers/apicard/ApiCardApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/test/java/brawlers/GatewayApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/test/java/brawler/apigateway/GatewayApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-margins/src/test/java/brawlers/ApiMarginsApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-margins/src/test/java/brawlers/apimargins/ApiMarginsApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,33 +62,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/DigitalHouse/dh202302-g4/eureka-server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15429688",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "73b429f53c84fda2f7a43dba3e0b1f4f",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/DigitalHouse/dh202302-g4/eureka-server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;73b429f53c84fda2f7a43dba3e0b1f4f&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.dh.apicard.controller" />
@@ -210,6 +189,7 @@
       <workItem from="1679616523163" duration="3104000" />
       <workItem from="1679628075005" duration="6270000" />
       <workItem from="1679676773460" duration="3425000" />
+      <workItem from="1679681048226" duration="452000" />
     </task>
     <servers />
   </component>
