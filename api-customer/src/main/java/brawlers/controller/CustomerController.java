@@ -1,5 +1,5 @@
 package brawlers.controller;
-import brawlers.entities.Customer;
+import brawlers.model.Customer;
 import brawlers.exception.CostumerNotFound;
 import brawlers.exception.CustomerAlreadyExists;
 import brawlers.service.CustomerService;

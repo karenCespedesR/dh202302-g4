@@ -1,5 +1,5 @@
 package brawlers.controller;
-import brawlers.entities.Wallet;
+import brawlers.model.Wallet;
 import brawlers.exception.CustomerNotFound;
 import brawlers.exception.WalletNotFound;
 import brawlers.service.WalletService;
@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -26,7 +27,7 @@ public class WalletController {
     }
 
     @GetMapping("/{documentType}/{documentNumber}/{coinCode}")
-    public ResponseEntity<Wallet> getWalletByDocumentTypeAndDocumentNumberAndCoinCode(@PathVariable String documentType, @PathVariable String documentNumber, @PathVariable Long coinCode) throws Exception {
+    public ResponseEntity<Wallet> getWalletByDocumentTypeAndDocumentNumberAndCoinCode(@PathVariable String documentType, @PathVariable String documentNumber, @PathVariable String coinCode) throws Exception {
         return new ResponseEntity<>(this.walletService.getWalletByDocumentTypeAndDocumentNumberAndCoinCode(documentType, documentNumber, coinCode), HttpStatus.OK);
     }
 
@@ -36,7 +37,7 @@ public class WalletController {
     }
 
     @PutMapping("/{id}/{balance}")
-    public ResponseEntity<Wallet> updateBalance(@PathVariable Long id, @PathVariable Double balance) throws WalletNotFound {
-        return new ResponseEntity<>(this.walletService.updateBalance(balance, id), HttpStatus.OK);
+    public ResponseEntity<Wallet> updateBalance(@PathVariable Long id, @PathVariable BigDecimal balance) throws WalletNotFound {
+        return new ResponseEntity<>(this.walletService.updateBalance(id, balance), HttpStatus.OK);
     }
 }

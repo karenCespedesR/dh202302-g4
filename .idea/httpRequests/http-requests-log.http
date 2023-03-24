@@ -1,0 +1,337 @@
+POST http://localhost:8080/wallet
+Content-Type: application/json
+Content-Length: 159
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "documentType":"DNI",
+  "documentNumber": "25252525",
+  "balance": 10555000,
+  "coin": {
+    "code": "U$D",
+    "description": "Los Crocantes Verdes"
+  }
+}
+
+<> 2023-03-24T144949.500.json
+
+###
+
+POST http://localhost:8080/wallet
+Content-Type: application/json
+Content-Length: 140
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "documentType":"DNI",
+  "documentNumber": "25252525",
+  "balance": 10555000,
+  "coin": {
+    "description": "Los Crocantes Verdes"
+  }
+}
+
+<> 2023-03-24T144834.500.json
+
+###
+
+POST http://localhost:8080/wallet
+Content-Type: application/json
+Content-Length: 140
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "documentType":"DNI",
+  "documentNumber": "25252525",
+  "balance": 10555000,
+  "coin": {
+    "description": "Los Crocantes Verdes"
+  }
+}
+
+<> 2023-03-24T144740.500.json
+
+###
+
+POST http://localhost:8080/wallet
+Content-Type: application/json
+Content-Length: 140
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "documentType":"DNI",
+  "documentNumber": "25252525",
+  "balance": 10555000,
+  "coin": {
+    "description": "Los Crocantes Verdes"
+  }
+}
+
+<> 2023-03-24T144208.500.json
+
+###
+
+POST http://localhost:8080/wallet
+Content-Type: application/json
+Content-Length: 159
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "documentType":"DNI",
+  "documentNumber": "25252525",
+  "balance": 10555000,
+  "coin": {
+    "code": "U$D",
+    "description": "Los Crocantes Verdes"
+  }
+}
+
+<> 2023-03-24T144136.500.json
+
+###
+
+POST http://localhost:8080/wallet
+Content-Type: application/json
+Content-Length: 159
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "documentType":"DNI",
+  "documentNumber": "25252525",
+  "balance": 10555000,
+  "coin": {
+    "code": "U$D",
+    "description": "Los Crocantes Verdes"
+  }
+}
+
+<> 2023-03-24T144058.500.json
+
+###
+
+POST http://localhost:8080/wallet
+Content-Type: application/json
+Content-Length: 159
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "documentType":"DNI",
+  "documentNumber": "25252525",
+  "balance": 10555000,
+  "coin": {
+    "code": "U$D",
+    "description": "Los Crocantes Verdes"
+  }
+}
+
+<> 2023-03-24T144048.500.json
+
+###
+
+POST http://localhost:8080/wallet
+Content-Type: application/json
+Content-Length: 159
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "documentType":"DNI",
+  "documentNumber": "25252525",
+  "balance": 10555000,
+  "coin": {
+    "code": "U$D",
+    "description": "Los Crocantes Verdes"
+  }
+}
+
+<> 2023-03-24T143902.500.json
+
+###
+
+POST http://localhost:8080/wallet
+Content-Type: application/json
+Content-Length: 81
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "documentType":"DNI",
+  "documentNumber": "25252525",
+  "balance": 10555000
+}
+
+<> 2023-03-24T143726.201.json
+
+###
+
+PUT http://localhost:8080/customer
+Content-Type: application/json
+Content-Length: 177
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id": 1,
+  "documentType":"DNI",
+  "documentNumber": "25252525",
+  "isActive" : true,
+  "name": "Luca",
+  "surname":"Beati",
+  "genre": "Male",
+  "birthdate": "1995-01-26"
+}
+
+<> 2023-03-24T142708.200.json
+
+###
+
+PUT http://localhost:8080/customer
+Content-Type: application/json
+Content-Length: 166
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "documentType":"DNI",
+  "documentNumber": "25252525",
+  "isActive" : true,
+  "name": "Luca",
+  "surname":"Beati",
+  "genre": "Male",
+  "birthdate": "1995-01-26"
+}
+
+<> 2023-03-24T142538.500.json
+
+###
+
+POST http://localhost:8080/customer
+Content-Type: application/json
+Content-Length: 180
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+    "documentType":"DNI",
+    "documentNumber": "25252525",
+    "isActive" : true,
+    "name": "Luca",
+    "surname":"Beati",
+    "genre": "Male",
+    "birthdate": "1995-01-01"
+}
+
+<> 2023-03-24T142423.201.json
+
+###
+
+POST http://localhost:8080/customer
+Content-Type: application/json
+Content-Length: 181
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+    "documentType":"DNI",
+    "documentNumber": "25252525"',
+    "isActive" : true,
+    "name": "Luca",
+    "surname":"Beati",
+    "genre": "Male",
+    "birthdate": "1995-01-01"
+}
+
+<> 2023-03-24T142407.400.json
+
+###
+
+POST http://localhost:8080/customer
+Content-Type: application/json
+Content-Length: 182
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+    "documentType":"DNI",
+    "documentNumber": "25252525"',
+    "isActive" : true,
+    "name": "Luca",
+    "surname":"Beati",
+    "genre": "Male",
+    "birthdate": "1995-01-01";
+}
+
+<> 2023-03-24T142318.400.json
+
+###
+
+POST http://localhost:8080/customer
+Content-Type: application/json
+Content-Length: 180
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+    "documentType":'DNI',
+    "documentNumber": '25252525',
+    "isActive" : true,
+    "name": 'Luca',
+    "surname":'Beati',
+    "genre": 'Male',
+    "birthdate":'1995-01-01';
+}
+
+<> 2023-03-24T142220.400.json
+
+###
+
+POST http://localhost:8080/customer
+Content-Type: application/json
+{:
+    "documentType": 'DNI',
+    "documentNumber": '25252525',
+    "isActive" : true,
+    "name": 'Luca',
+    "surname": 'Beati',
+    "genre": 'Male',
+    "birthdate": '1995-01-01';
+}:
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+POST http://localhost:8080/customer
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-03-24T140943.400.json
+
+###
+

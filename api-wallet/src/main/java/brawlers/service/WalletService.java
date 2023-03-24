@@ -1,11 +1,13 @@
 package brawlers.service;
 import brawlers.client.CustomerFeign;
-import brawlers.entities.Wallet;
+import brawlers.model.Wallet;
 import brawlers.exception.CustomerNotFound;
 import brawlers.exception.WalletNotFound;
 import brawlers.repository.WalletRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,17 +31,19 @@ public class WalletService {
         }
     }
 
-    public Wallet updateBalance(Double balance, Long id) throws WalletNotFound {
-        Wallet returnedWallet = walletRepository.findById(id).get();
-        if(returnedWallet!=null) {
-            returnedWallet.setBalance(balance);
-            return walletRepository.save(returnedWallet);
+    public Wallet updateBalance(Long id, BigDecimal balance) throws WalletNotFound {
+        Optional<Wallet> returnedWallet = walletRepository.findById(id);
+        if(returnedWallet.isPresent()) {
+            Wallet actualWallet = returnedWallet.get();
+            actualWallet.setBalance(balance);
+            walletRepository.save(actualWallet);
+            return actualWallet;
         }else{
             throw new WalletNotFound("Wallet not found.");
         }
     }
 
-    public Wallet getWalletByDocumentTypeAndDocumentNumberAndCoinCode(String documentType, String documentNumber, Long coinCode) throws WalletNotFound {
+    public Wallet getWalletByDocumentTypeAndDocumentNumberAndCoinCode(String documentType, String documentNumber, String coinCode) throws WalletNotFound {
         Optional<Wallet> walletRecibida = walletRepository.findByDocumentTypeAndDocumentNumberAndCoin_Code(documentType, documentNumber, coinCode);
         if (walletRecibida.isPresent()) {
             return walletRecibida.get();
