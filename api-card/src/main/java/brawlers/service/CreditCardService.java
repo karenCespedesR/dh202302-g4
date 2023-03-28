@@ -9,6 +9,8 @@ import brawlers.model.CreditCard;
 import brawlers.model.CreditCardMovement;
 import brawlers.repository.CreditCardMovementsRepository;
 import brawlers.repository.CreditCardRepository;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,17 +35,23 @@ public class CreditCardService {
         return creditCardRepository.findByDocTypeAndDocNum(docType, docNum).orElseThrow(() -> new CardException(MessageError.CUSTOMER_NOT_HAVE_CARD));
     }
 
+    @Retry(name = "retryCard")
+    @CircuitBreaker(name = "configCard", fallbackMethod = "createFallBack")
     public String create(CreditCard creditCard) throws CardException {
         if (creditCardRepository.findByDocTypeAndDocNum(creditCard.getDocType(), creditCard.getDocNum()).isPresent()) {
             throw new CardException(MessageError.CUSTOMER_WITH_CARD);
         }
         MarginFeign.CalificationDTO calificationDTO = marginFeign.calculateCalification(creditCard.getDocType(), creditCard.getDocNum());
-        BigDecimal totalMarginCard = calificationDTO.getSublimits().stream().filter(sublimit -> sublimit.getConcept().name().equals(MarginFeign.CalificationDTO.Concept.CARD)).findFirst().get().getTotalMargin();
+        BigDecimal totalMarginCard = calificationDTO.getSublimits().stream().filter(sublimit -> sublimit.getConcept().name().equals(MarginFeign.CalificationDTO.Concept.CARD.name())).findFirst().get().getTotalMargin();
         creditCard.setAuthorized(totalMarginCard);
         creditCard.setAvailable(totalMarginCard);
         creditCard.setConsumed(BigDecimal.ZERO);
         creditCardRepository.save(creditCard);
         return creditCard.getId();
+    }
+
+    public String createFallBack(CreditCard creditCard, Throwable t) throws Exception {
+        throw new Exception("Cannot create card.");
     }
 
     public void debit(CreditCardMovement movement) throws CardException {
@@ -55,6 +63,8 @@ public class CreditCardService {
         creditCardMovementsRepository.save(movement);
     }
 
+    @Retry(name = "retryCard")
+    @CircuitBreaker(name = "configCard", fallbackMethod = "payFallBack")
     public void pay(CreditCardController.PayCreditCardDto payCreditCardDto) throws CardException {
         var creditCard = creditCardRepository.findByDocTypeAndDocNum(payCreditCardDto.docType(), payCreditCardDto.docNum()).orElseThrow(() -> new CardException(MessageError.CUSTOMER_NOT_HAVE_CARD));
         var walletResult= walletFeign.getWalletByDocumentTypeAndDocumentNumberAndCoinCode(payCreditCardDto.docType(), payCreditCardDto.docNum(),creditCard.getCurrency());
@@ -66,5 +76,9 @@ public class CreditCardService {
         creditCard.setAvailable(creditCard.getAvailable().add(consumed));
         creditCardRepository.save(creditCard);
         walletFeign.updateBalance(walletResult.getId(),walletResult.getBalance()-consumed.doubleValue());
+    }
+
+    public void payFallBack(CreditCardController.PayCreditCardDto payCreditCardDto, Throwable t) throws Exception {
+        throw new Exception("Cannot pay.");
     }
 }

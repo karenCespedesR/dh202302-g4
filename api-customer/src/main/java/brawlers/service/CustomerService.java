@@ -1,4 +1,5 @@
 package brawlers.service;
+import brawlers.event.CreatedClientProvider;
 import brawlers.model.Customer;
 import brawlers.exception.CostumerNotFound;
 import brawlers.exception.CustomerAlreadyExists;
@@ -10,15 +11,19 @@ import java.util.Optional;
 @Service
 public class CustomerService {
     private final CustomerRepository customerRepository;
+    private final CreatedClientProvider createdClientProvider;
 
     @Autowired
-    public CustomerService(CustomerRepository customerRepository) {
+    public CustomerService(CustomerRepository customerRepository, CreatedClientProvider createdClientProvider) {
         this.customerRepository = customerRepository;
+        this.createdClientProvider = createdClientProvider;
     }
 
     public Customer createCustomer(Customer customer) throws CustomerAlreadyExists {
        if (!customerRepository.existsByDocumentNumber(customer.getDocumentNumber())) {
-           return customerRepository.save(customer);
+           Customer savedCustomer = customerRepository.save(customer);
+           createdClientProvider.publish(new CreatedClientProvider.Data(customer.getDocumentType(), customer.getDocumentNumber()));
+           return savedCustomer;
        }
         throw new CustomerAlreadyExists("Customer #" + customer.getDocumentNumber() + " already exists.");
     }
