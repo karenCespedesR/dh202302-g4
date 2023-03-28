@@ -19,6 +19,7 @@ public class CreatedClientConsumer {
 
     @RabbitListener(queues = RabbitMQConfig.QUEUE_CREATED_CLIENT)
     public void listen(CreatedClientConsumer.Data message) throws CustomerNotFound {
+        System.out.println("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         Wallet wallet = new Wallet();
         wallet.setDocumentType(message.getDocType());
         wallet.setDocumentNumber(message.getDocNum());

@@ -29,27 +29,29 @@ public class CustomerService {
     }
 
     public Customer modifyCustomer(Customer customer) throws CostumerNotFound {
-        Customer returnedCustomer = this.customerRepository.findById(customer.getId()).get();
-        if(returnedCustomer!=null) {
-            returnedCustomer.setName(customer.getName());
-            returnedCustomer.setIsActive(customer.getIsActive());
-            returnedCustomer.setSurname(customer.getSurname());
-            returnedCustomer.setDocumentNumber(customer.getDocumentNumber());
-            returnedCustomer.setDocumentType(customer.getDocumentType());
-            returnedCustomer.setGenre(customer.getGenre());
-            returnedCustomer.setBirthdate(customer.getBirthdate());
-            return this.customerRepository.save(returnedCustomer);
-        }else {
+        Optional<Customer> returnedCustomer = this.customerRepository.findById(customer.getId());
+        if(returnedCustomer.isPresent()) {
+            Customer customerToModify = returnedCustomer.get();
+            customerToModify.setName(customer.getName());
+            customerToModify.setIsActive(customer.getIsActive());
+            customerToModify.setSurname(customer.getSurname());
+            customerToModify.setDocumentNumber(customer.getDocumentNumber());
+            customerToModify.setDocumentType(customer.getDocumentType());
+            customerToModify.setGenre(customer.getGenre());
+            customerToModify.setBirthdate(customer.getBirthdate());
+            return this.customerRepository.save(customerToModify);
+        } else {
             throw new CostumerNotFound("User not found.");
         }
     }
 
     public void disableCustomer(Long id) throws CostumerNotFound {
-        Customer returnedCustomer = this.customerRepository.findById(id).get();
-        if(returnedCustomer!=null) {
-            returnedCustomer.setIsActive(false);
-            this.customerRepository.save(returnedCustomer);
-        }else{
+        Optional<Customer> returnedCustomer = this.customerRepository.findById(id);
+        if(returnedCustomer.isPresent()) {
+            Customer customerToDisable = returnedCustomer.get();
+            customerToDisable.setIsActive(false);
+            this.customerRepository.save(customerToDisable);
+        } else {
             throw new CostumerNotFound("User not found.");
         }
     }
