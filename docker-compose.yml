@@ -1,0 +1,55 @@
+version: '3.3'
+services:
+  config-server-container:
+    build: config-server
+    container_name: config-server-container
+    restart: on-failure
+    ports:
+      - "8888:8888"
+    expose:
+      - '8888'
+  eureka-server-container:
+    build: eureka-server
+    container_name: eureka-server-container
+    restart: on-failure
+    ports:
+      - "8761:8761"
+    expose:
+      - '8761'
+    links:
+      - config-server-container
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'brawlers-dev'
+      MYSQL_ROOT_USER: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+  rabbitmq-container:
+    image: rabbitmq:3-management
+    container_name: rabbitmq-container
+    hostname: localhost
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    expose:
+      - 15672
+      - 5672
+  zipkin-server-container:
+    image: openzipkin/zipkin-slim
+    container_name: zipkin-server-container
+    environment:
+      - STORAGE_TYPE=mem
+    ports:
+      - "9411:9411"
+    expose:
+      - 9411
+    depends_on:
+      - storage-aux-container
+  storage-aux-container:
+    image: busybox:1.31.0
+    container_name: storage-aux-container
