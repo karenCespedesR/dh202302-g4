@@ -9,6 +9,5 @@ spring:
       server:
         git:
           uri: https://github.com/jonathanvictoricadh/dh202302-g4-config
-          default-label: test
           force-pull: true
           search-paths: configData
